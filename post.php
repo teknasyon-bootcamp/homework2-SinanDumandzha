@@ -23,3 +23,13 @@
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
 
+require_once("./functions.php");
+
+!isset($id) ? $id = 1 : $id = $id; // Check for post id and if not exist an id, set id as 1
+!isset($title) ? $title = "Güzel Bir Başlık" : $title = $post["title"]; // Check for post title and if not exist a title, set title as "Güzel Bir Başlık"
+!isset($type) ? $type = "normal" : $type = $post["type"]; // Check for post type and if not exist a type, set type as "normal"
+
+$type == "urgent" ? $bgColor = "style='background-color: red'" : ($type == "warning" ? $bgColor = "style= 'background-color: yellow'" : $bgColor = "style= 'background-color: none'"); // Check for post' type to set background color
+    
+echo "<div " . $bgColor . ">"; // Open div with style='background-color: $bgColor'
+echo getPostDetails($id, $title) . "</div>"; // Close div with post' id & title
