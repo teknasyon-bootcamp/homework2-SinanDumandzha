@@ -20,3 +20,13 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+require_once("./functions.php");
+
+$randomPostCount = getRandomPostCount(3, 8); //Get random post count
+$randomPostsArray = getLatestPosts($randomPostCount); // Get latest posts array
+
+foreach($randomPostsArray as $id => $post) 
+{
+    include("./post.php"); // Includes post.php to all posts
+}
+

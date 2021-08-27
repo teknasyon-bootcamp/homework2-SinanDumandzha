@@ -16,7 +16,9 @@
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
  */
 
-function getLatestPosts($count = 5)
+if(count(get_included_files()) == 1) exit("Direct access not permitted."); // Deny direct access to functions.php
+
+function getLatestPosts($count = 5) // Get latest n count posts
 {
     $posts = [];
     $postTypes = ["urgent", "warning", "normal"];
@@ -37,7 +39,7 @@ function getLatestPosts($count = 5)
     return $posts;
 }
 
-function getPostDetails($id, $title)
+function getPostDetails($id, $title) // Get post details
 {
     echo "<h1>".$title." (#".$id.")</h1>";
     echo <<<EOT
@@ -47,5 +49,7 @@ function getPostDetails($id, $title)
 EOT;
 }
 
-// Aşağıya fonksiyonu tanımlayabilirsiniz.
-
+function getRandomPostCount($min, $max) // Get rondom post count between min & max value
+{
+    return rand($min, $max);
+}
